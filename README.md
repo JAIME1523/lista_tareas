@@ -1,16 +1,19 @@
-# lista_tareas
+# lista tareas
 
-A new Flutter project.
+Proyecto de una lista para agregar, editar, elimnar tareas de una lista, llamando una API desde flutter
 
-## Getting Started
+## Instruccion
+Para eliminar una tarea deslize a la derecha el elemento a eliminar
+&nbsp;
 
-This project is a starting point for a Flutter application.
+![alt text](https://res.cloudinary.com/dybphzddq/image/upload/v1658028905/GIT/IMAGENgit_j2qxdu.png)
 
-A few resources to get you started if this is your first Flutter project:
+cambio de tema con el boton en la parte superiro derecha
+&nbsp;
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+![alt text](https://res.cloudinary.com/dybphzddq/image/upload/v1658029445/GIT/git3_rx8dt1.png)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Vista de pantalla para agregar o editar tarea
+&nbsp;
+
+![alt text](https://res.cloudinary.com/dybphzddq/image/upload/v1658029450/GIT/git2_m9w6o3.png)
