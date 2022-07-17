@@ -1,9 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 class ThemeProvider extends ChangeNotifier {
-  
-
-   bool _tema = false;
+  //Get y Set para el combio de tema de la aplicacion
+  bool _tema = false;
 
   bool get tema => _tema;
 

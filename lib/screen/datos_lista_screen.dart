@@ -6,6 +6,7 @@ import 'package:lista_tareas/provider/provider.dart';
 import 'package:lista_tareas/screen/screen.dart';
 import 'package:lista_tareas/style/style.dart';
 
+//Contenido que se muetra en showModalBottomSheet de la vista home_screen, Esta vista contiene todos los datos de un tarea
 class DatosListaScreen extends StatelessWidget {
   const DatosListaScreen(
       {Key? key, required this.tarea, required this.tareaProvider})
@@ -32,6 +33,7 @@ class DatosListaScreen extends StatelessWidget {
   }
 }
 
+//El contiene el boton para mandar a llamar la opcion de editar esta tarea
 class _Card extends StatelessWidget {
   const _Card({
     Key? key,
@@ -46,7 +48,6 @@ class _Card extends StatelessWidget {
     return Card(
       margin: const EdgeInsets.all(15),
       color: Colors.blue[100],
-      
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10.0),
       ),
@@ -69,11 +70,15 @@ class _Card extends StatelessWidget {
                       color: tarea.isCompleted == 1
                           ? Colors.green
                           : Colors.yellow),
-                         const SizedBox(height: 15,),
-                          ElevatedButton(
-                            style:ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.green)),
-                            onPressed: (() {
-                            Navigator.push(
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.green)),
+                      onPressed: (() {
+                        Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (BuildContext context) =>
@@ -82,8 +87,8 @@ class _Card extends StatelessWidget {
                                       tareaProvider: tareaProvider,
                                       funcion: 'Editar',
                                     )));
-                          }), child:const Text('Editar'))
-                
+                      }),
+                      child: const Text('Editar'))
                 ],
               ),
             ),

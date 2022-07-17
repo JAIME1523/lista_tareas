@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+
+//alert dialog mostrado al ejecutar Dismissible de la vista principal
 class AlertDialogDelete extends StatelessWidget {
   const AlertDialogDelete({Key? key}) : super(key: key);
 

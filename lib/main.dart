@@ -5,7 +5,9 @@ import 'package:lista_tareas/provider/provider.dart';
 import 'package:lista_tareas/screen/screen.dart';
 import 'package:lista_tareas/style/style.dart';
 
-void main() => runApp(ChangeNotifierProvider(
+void main() => runApp(
+  //se inicaliza el provider del tema para poder cambiarlo
+  ChangeNotifierProvider(
     create: (_) => ThemeProvider(), child: const MyApp()));
 
 class MyApp extends StatelessWidget {

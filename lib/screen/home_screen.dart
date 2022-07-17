@@ -1,19 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
+import 'package:provider/provider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:lista_tareas/models/models.dart';
 import 'package:lista_tareas/provider/provider.dart';
-
 import 'package:lista_tareas/screen/screen.dart';
 import 'package:lista_tareas/widget/widget.dart';
 
-import 'package:provider/provider.dart';
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
+//se agrega el provider de tareas_provider
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -21,6 +19,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+//se manda a llamar los provider de lista_tareas para listar todas las tareas y theme_provider para cambiar el tema de la aplicaion
 class _ContenidoHome extends StatelessWidget {
   const _ContenidoHome({
     Key? key,
@@ -37,8 +36,9 @@ class _ContenidoHome extends StatelessWidget {
           Column(
             children: [
               const Text('Tema'),
+              //Switch para el combio de tema
               CupertinoSwitch(
-                  trackColor: Color.fromARGB(255, 1, 153, 255),
+                  trackColor: const Color.fromARGB(255, 1, 153, 255),
                   value: themeProvider.tema,
                   onChanged: (valor) {
                     themeProvider.tema = valor;
@@ -52,7 +52,9 @@ class _ContenidoHome extends StatelessWidget {
           ? const Center(
               child: Text('No hay datos'),
             )
+          //FadeInLeft de la libreria "animate_do" para la animacion de la lista,
           : FadeInLeft(
+              //Listar todas las tareas que estan en el arreglo "tareasLista"
               child: ListView.separated(
                 separatorBuilder: (_, i) => const Divider(),
                 physics: const BouncingScrollPhysics(),
@@ -68,6 +70,7 @@ class _ContenidoHome extends StatelessWidget {
   }
 }
 
+//Contenido del FloatingActionButtonLocation de la vista home
 class _FloatingActionButton extends StatelessWidget {
   const _FloatingActionButton({
     Key? key,
@@ -76,6 +79,7 @@ class _FloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tareaProvider = Provider.of<TareasProvider>(context);
+    //FloatingActionButton para agregar nueva tarea
     return FloatingActionButton.extended(
       onPressed: () {
         Navigator.push(context,
@@ -93,6 +97,7 @@ class _FloatingActionButton extends StatelessWidget {
   }
 }
 
+//Contenido para cada elemento en la lista de tareas
 class _Lista extends StatelessWidget {
   const _Lista({Key? key, required this.tarea}) : super(key: key);
   final Tarea tarea;
@@ -100,7 +105,7 @@ class _Lista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final listaPriver = Provider.of<TareasProvider>(context);
-
+//GestureDetector dirije a la vista donde se mutran todos los datos de una sola tarea
     return GestureDetector(
       onTap: () async {
         await listaPriver.traerTarea(tarea.id!);
@@ -115,7 +120,9 @@ class _Lista extends StatelessWidget {
           },
         );
       },
-      child: Dismissible(
+      child:
+          //Dismissible permite arrastar un elemento de lista para poder eliminarlo con la funcion "eliminarTarea"
+          Dismissible(
         key: Key('${tarea.id}'),
         direction: DismissDirection.startToEnd,
         onDismissed: (DismissDirection direction) async {
@@ -134,14 +141,6 @@ class _Lista extends StatelessWidget {
             },
           );
         },
-        secondaryBackground: Container(
-          padding: const EdgeInsets.only(right: 8.0),
-          color: const Color(0xff6370ff),
-          child: const Align(
-            alignment: Alignment.centerRight,
-            child: Text('Editar tarea', style: TextStyle(color: Colors.white)),
-          ),
-        ),
         background: Container(
           padding: const EdgeInsets.only(left: 8.0),
           color: Colors.red,
@@ -167,7 +166,7 @@ class _Lista extends StatelessWidget {
                         ? Colors.green
                         : Colors.yellowAccent),
                 Text(
-                  tarea.isCompleted == 0 ? 'Pediente' : 'Completada',
+                  tarea.isCompleted == 0 ? 'Pendiente' : 'Completada',
                   style: const TextStyle(fontSize: 12),
                 ),
               ],

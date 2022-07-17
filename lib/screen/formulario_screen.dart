@@ -10,6 +10,7 @@ import 'package:lista_tareas/provider/provider.dart';
 import 'package:lista_tareas/provider/form_provider.dart';
 import 'package:lista_tareas/widget/widget.dart';
 
+//Vista del formulario para agregar o editar una tarea, en esta parte se manda a llamar el provider del formulario
 class FormularioScreen extends StatelessWidget {
   const FormularioScreen(
       {Key? key,
@@ -32,6 +33,8 @@ class FormularioScreen extends StatelessWidget {
   }
 }
 
+//Scaffold principal de la vusta se recibe aqui la variable si se desea editar o actualizar,
+//se mandar a llamar diferentes funciones de tareas_provider 
 class _Scaffold extends StatelessWidget {
   const _Scaffold({
     Key? key,
@@ -64,10 +67,8 @@ class _Scaffold extends StatelessWidget {
                       const SnackBar(content: Text('Se agrego la tarea')));
                 } else {
                   await tareaProvider.editarTarea(provider.tarea);
-
                   Navigator.pop(context);
                   Navigator.pop(context);
-
                   ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(content: Text('Se Edito la tarea')));
                 }
@@ -81,6 +82,7 @@ class _Scaffold extends StatelessWidget {
   }
 }
 
+//contiene todos los TextFormField del formulario con sus respectivas validaciones
 class _From extends StatelessWidget {
   const _From({
     Key? key,
@@ -115,7 +117,7 @@ class _From extends StatelessWidget {
                   },
                   validator: (valor) {
                     if (valor == null || valor.isEmpty || valor.length < 4) {
-                      return 'El Titulo es requerida o mayor a 4 letras';
+                      return 'El Titulo es requerido o mayor a 4 letras';
                     }
                     return null;
                   },
@@ -134,8 +136,8 @@ class _From extends StatelessWidget {
               CustomImput(
                 texfiel: DateTimePicker(
                   style: const TextStyle(color: Colors.black),
-                  dateLabelText: 'fecha de vencimiento',
-                  dateHintText: 'fecha de vencimiento',
+                  dateLabelText: 'Fecha de vencimiento',
+                  dateHintText: 'Fecha de vencimiento',
                   initialValue: provider.tarea.dueDate,
                   initialDate: provider.tarea.dueDate != null
                       ? DateTime.parse(provider.tarea.dueDate)

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class TextDatosLista {
+  //estilo de de texto de la pantalla DatosLista
   static TextStyle style1 = const TextStyle(
       color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold);
   static TextStyle style2 = const TextStyle(color: Colors.black);
 
+//Tema configurado basado eb dark()
   static var styleTheme = ThemeData.dark().copyWith(
     colorScheme: ColorScheme.fromSwatch()
         .copyWith(secondary: ThemeData.dark().colorScheme.secondary),
