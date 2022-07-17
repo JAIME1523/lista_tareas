@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../models/models.dart';
 
-//Proider para la conexion con la api
+//Provider para la conexion con la api
 class TareasProvider extends ChangeNotifier {
   TareasProvider() {
     consultaLista();
@@ -24,7 +24,7 @@ class TareasProvider extends ChangeNotifier {
 
   final url = Uri.https(_url, 'vdev/tasks-challenge/tasks', _params);
   bool cargar = true;
-//lista para en la que agregaran todos las tareas tridas desde api
+//lista  en la que se agregaran todos las tareas traídas desde api
   final List<Tarea> tareasLista = [];
 // variable para asignar cundo se llame una sola tarea desde la api
   Tarea tarea = Tarea();
@@ -92,7 +92,7 @@ class TareasProvider extends ChangeNotifier {
     }
   }
 
-//Busca una tarea por id en espesifico donde trae todos sus datos, poder mostrarlo en la vista
+//Busca una tarea por id en especifico donde trae todos sus datos, poder mostrarlo en la vista
   traerTarea(int id) async {
     try {
       final resp = await http.get(
@@ -107,7 +107,7 @@ class TareasProvider extends ChangeNotifier {
     }
   }
 
-//actulizar la tarea por id, recibe la tarea a editada y se ejecuata un put con el id de la tarea
+//actualizar la tarea por id, recibe la tarea a editada y se ejecuta un put con el id de la tarea
   editarTarea(Tarea editarTarea) async {
     cargar = false;
 

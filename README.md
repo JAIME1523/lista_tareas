@@ -1,10 +1,10 @@
 # lista tareas
-
-Proyecto de una lista para agregar, editar, elimnar tareas de una lista, llamando una API desde flutter
+Proyecto de una lista para agregar, editar, eliminar tareas de una lista, llamando una API desde flutter
 
 ## Instruccion
-Para eliminar una tarea deslize a la derecha el elemento a eliminar
+Para eliminar una tarea desliza a la derecha el elemento a eliminar
 &nbsp;
+
 
 ![alt text](https://res.cloudinary.com/dybphzddq/image/upload/v1658028905/GIT/IMAGENgit_j2qxdu.png)
 

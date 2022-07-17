@@ -1,5 +1,5 @@
 //
-//    Modelo generado de las tareas para ocuapar con las vistas
+//    Modelo generado de las tareas para ocupara con las vistas
 //     final tarea = tareaFromMap(jsonString);
 
 import 'dart:convert';

@@ -6,7 +6,7 @@ class TextDatosLista {
       color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold);
   static TextStyle style2 = const TextStyle(color: Colors.black);
 
-//Tema configurado basado eb dark()
+//Tema configurado basado en dark()
   static var styleTheme = ThemeData.dark().copyWith(
     colorScheme: ColorScheme.fromSwatch()
         .copyWith(secondary: ThemeData.dark().colorScheme.secondary),

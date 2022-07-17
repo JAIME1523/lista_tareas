@@ -6,7 +6,7 @@ import 'package:lista_tareas/provider/provider.dart';
 import 'package:lista_tareas/screen/screen.dart';
 import 'package:lista_tareas/style/style.dart';
 
-//Contenido que se muetra en showModalBottomSheet de la vista home_screen, Esta vista contiene todos los datos de un tarea
+//Contenido que se muestra en showModalBottomSheet de la vista home_screen, Esta vista contiene todos los datos de un tarea
 class DatosListaScreen extends StatelessWidget {
   const DatosListaScreen(
       {Key? key, required this.tarea, required this.tareaProvider})
@@ -32,8 +32,7 @@ class DatosListaScreen extends StatelessWidget {
             ));
   }
 }
-
-//El contiene el boton para mandar a llamar la opcion de editar esta tarea
+//contiene el botón para mandar a llamar la opción de editar esta tarea
 class _Card extends StatelessWidget {
   const _Card({
     Key? key,

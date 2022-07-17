@@ -32,9 +32,9 @@ class FormularioScreen extends StatelessWidget {
     );
   }
 }
+//Scaffold principal de la vista se recibe aquí la variable si se desea editar o actualizar,
+//se mandar a llamar diferentes funciones de tareas_provider
 
-//Scaffold principal de la vusta se recibe aqui la variable si se desea editar o actualizar,
-//se mandar a llamar diferentes funciones de tareas_provider 
 class _Scaffold extends StatelessWidget {
   const _Scaffold({
     Key? key,
@@ -51,7 +51,8 @@ class _Scaffold extends StatelessWidget {
     return Scaffold(
       // backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Center(child: Text(funcion == 'Agregar' ? 'Agregar' : 'Editar')),
+        title: Text(funcion == 'Agregar' ? 'Agregar' : 'Editar'),
+        centerTitle: true,
       ),
       body: tareaProvider.cargar
           ? const _From()

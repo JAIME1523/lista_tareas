@@ -18,7 +18,7 @@ class FromProvider extends ChangeNotifier {
 
 //tarea que recibe para editar o guardar
   FromProvider(this.tarea);
-//funcion para verificar si las validaciones estan complidas
+//función para verificar si las validaciones están cumplidas
   bool isValidForm() {
     return formKey.currentState?.validate() ?? false;
   }

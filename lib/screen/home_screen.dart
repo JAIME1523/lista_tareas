@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-//se manda a llamar los provider de lista_tareas para listar todas las tareas y theme_provider para cambiar el tema de la aplicaion
+//se manda a llamar los provider de lista_tareas para listar todas las tareas y theme_provider para cambiar el tema de la aplicación
 class _ContenidoHome extends StatelessWidget {
   const _ContenidoHome({
     Key? key,
@@ -36,9 +36,10 @@ class _ContenidoHome extends StatelessWidget {
           Column(
             children: [
               const Text('Tema'),
-              //Switch para el combio de tema
+              //Switch para el cambio de tema
               CupertinoSwitch(
                   trackColor: const Color.fromARGB(255, 1, 153, 255),
+                  activeColor: const Color(0xff6370ff),
                   value: themeProvider.tema,
                   onChanged: (valor) {
                     themeProvider.tema = valor;
@@ -46,13 +47,14 @@ class _ContenidoHome extends StatelessWidget {
             ],
           ),
         ],
-        title: const Center(child: Text('Lista tareas')),
+        title: const Text('Lista tareas'),
+        centerTitle: true,
       ),
       body: tareaProvider.tareasLista.isEmpty
           ? const Center(
               child: Text('No hay datos'),
             )
-          //FadeInLeft de la libreria "animate_do" para la animacion de la lista,
+//FadeInLeft de la librería "animate_do" para la animación de la lista,
           : FadeInLeft(
               //Listar todas las tareas que estan en el arreglo "tareasLista"
               child: ListView.separated(
@@ -105,7 +107,7 @@ class _Lista extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final listaPriver = Provider.of<TareasProvider>(context);
-//GestureDetector dirije a la vista donde se mutran todos los datos de una sola tarea
+//GestureDetector dirije a la vista donde se mutaran todos los datos de una sola tarea
     return GestureDetector(
       onTap: () async {
         await listaPriver.traerTarea(tarea.id!);
@@ -121,7 +123,7 @@ class _Lista extends StatelessWidget {
         );
       },
       child:
-          //Dismissible permite arrastar un elemento de lista para poder eliminarlo con la funcion "eliminarTarea"
+          //Dismissible permite arrastra un elemento de lista para poder eliminarlo con la funcion "eliminarTarea"
           Dismissible(
         key: Key('${tarea.id}'),
         direction: DismissDirection.startToEnd,
